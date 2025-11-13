@@ -1,0 +1,27 @@
+if (strcmp(ball, "W") == 0) {
+    totalRuns += 1;
+}
+else if (strcmp(ball, "N") == 0) {
+    totalRuns += 1;
+    noBallActive = 1;
+}
+else if (strcmp(ball, "B") == 0) {
+    wickets++;
+    noBallActive = 0; 
+}
+else if (strcmp(ball, "C") == 0) {
+    wickets++;
+    noBallActive = 0;
+}
+else if (strcmp(ball, "R") == 0) {
+    if (noBallActive) {
+        wickets++;
+    }
+    noBallActive = 0;
+}
+else { 
+    // numeric runs
+    int run = atoi(ball);
+    totalRuns += run;
+    noBallActive = 0;
+}
