@@ -25,6 +25,18 @@ void popAt(int arr[], int *n, int index){
     (*n)--;
 }
 
+void pushAt(int arr[], int *n, int index, int value){
+    if(*n <=0){
+        return;
+    }
+
+    for (int i = (*n)-1; i > index; i--)
+    {
+        arr[i] = arr[i-1];
+    }
+    arr[index] = value; // or any value you want to insert
+}
+
 int main(){
     int n=5;
     int arr[5]={1, 2, 3 , 4, 5}; 
@@ -32,7 +44,8 @@ int main(){
     int index;
     scanf("%d", &index);
 
-    popAt(arr, &n, index);
+    // popAt(arr, &n, index);
+    pushAt(arr, &n, index, 10);
     // Printing the array after popping the first element
     printf("Array after popping the first element: ");
     for(int i = 0; i < n; i++) {
